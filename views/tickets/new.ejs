@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+
+<div>Please do not add the same ticket twice:</div>
+<br>
+<section id="badge-container">
+  <% tickets.forEach(function(t) { %>
+    <article class="badge"><%= t.seat %> $<%= t.price %></article>
+  <% }) %>
+</section>
+
+<form id="add-ticket-form" action="/tickets" method="POST">
+  <label><strong>Seat</strong>(A1-F99):</label>
+  <input name="seat" required pattern="[A-F][1-9]\d?">
+  
+  <label><strong>Price</strong></label>
+  <input type="number" name="price">
+<!--   
+  <label><strong>Flight:</strong></label>
+  <input type="number" name="flight"> -->
+ 
+  <input type="submit" value="Add Ticket">
+</form>
+
+<%- include('../partials/footer') %>
