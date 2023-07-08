@@ -25,6 +25,7 @@ const flightSchema = new Schema({
         default: 'DEN'},
   flightNo: {
     type: Number,
+    required: true,
     min: 10,
         max: 9999},
   departs: {
