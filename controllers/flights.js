@@ -15,13 +15,12 @@ module.exports = {
   async function show(req, res) {
     const flight = await Flight.findById(req.params.id);
     res.render('flights/show', { airline: 'Flight Details', flight });
-  }
+}
 
-  function newFlight(req, res) {
+function newFlight(req, res) {
     res.render('flights/new', { airline: "Add Flight", errorMsg: '' });
-    
-  }
- 
+}
+
   async function create(req, res) {
     try {
         await Flight.create(req.body);
@@ -32,3 +31,4 @@ module.exports = {
       res.render('flights/new', { errorMsg: err.message });
     }
   }
+
